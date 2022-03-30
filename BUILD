@@ -2,9 +2,9 @@ langs("Python")
 load("//rules/env/Docker/build_defs.py")
 
 py_binary (
-  name = "dhwi_server",
+  name = "nginx_docker_bridge",
   srcs = [
-    "dhwi_server.py",
+    "nginx_docker_bridge.py",
     "docker_interface.py",
     "nginx_interface.py",
     "redis_interface.py",
@@ -35,6 +35,6 @@ container (
     "alpine_packages": [],
     "environment": [],
     "ports": [5000],
-    "args": ["hostname=demo.tedm.io"],
+    "args": ["hostname=demo.example.com"],
   }
 )
