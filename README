@@ -1,0 +1,22 @@
+Docker Host Web Interface
+
+Any docker target with a hostname label will get
+get automaticall bound and the nginx process restarted.
+
+or use impulse to generate your docker files:
+
+container (
+  name = "demo_service",
+  main_executable = "demo_server",
+  deps = [
+    ":demo_server",
+  ],
+  binaries = [],
+  docker_args = {
+    "pip_packages": [],
+    "alpine_packages": [],
+    "environment": [],
+    "ports": [5000],
+    "args": ["hostname=demo.tedm.io"],
+  }
+)
