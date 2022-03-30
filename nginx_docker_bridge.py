@@ -27,7 +27,7 @@ def main():
 
   # Set up the nginx interface - this will parse the existing
   # nginx config as well as install listeners to redis for changes
-  nginx = nginx_interface.StartThread('nginx.conf', conn)
+  nginx = nginx_interface.StartThread('/etc/nginx/nginx.conf', conn)
 
   # Set up the docker interface - this will check the current state
   # of docker, and then set up a thread that watches for changes
