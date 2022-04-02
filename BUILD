@@ -15,6 +15,9 @@ py_binary (
     "//api_core:api_inspector",
     "//nginx:nginxio",
   ],
+  pips = [
+    "redis",
+  ],
 )
 
 py_binary (

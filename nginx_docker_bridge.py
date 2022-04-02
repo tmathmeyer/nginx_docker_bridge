@@ -46,7 +46,7 @@ def main():
   api_inspector.InstallApiInspector(app)
 
   # Run the server
-  app.run()
+  app.run(host='0.0.0.0', port=5000)
 
   # Join the threads
   docker.join()

@@ -28,8 +28,10 @@ def QueryRunningDockerContainers(flter):
     hostname = GetDockerHostname(GetDockerImageInfo(image))
     portbindings = {}
     for binding in ports.split(','):
-      ip, port = binding.strip().split('->')[0].strip().rsplit(':', 1)
-      portbindings[ip.strip()] = int(port.strip())
+      ipport = binding.strip().split('->')[0].strip().rsplit(':', 1)
+      if len(ipport) == 2:
+        ip, port = ipport
+        portbindings[ip.strip()] = int(port.strip())
     yield Container(c_id, status, portbindings, hostname)
 
 
@@ -68,7 +70,7 @@ def LinkContainersForFilter(redis, fltr):
     else:
       new_server = types.Server(
         hostname=container.hostname,
-        listen='443 ssl',
+        listen='80',
         access_log='',
         root='',
         server_name=container.hostname,
