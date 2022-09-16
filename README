@@ -1,7 +1,7 @@
 Docker Host Web Interface
 
 Any docker target with a hostname label will get
-get automaticall bound and the nginx process restarted.
+get automatically bound and the nginx process restarted.
 
 or use impulse to generate your docker files:
 
